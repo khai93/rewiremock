@@ -32,7 +32,7 @@ export { rewiremock }
 ```js
 // rewiremock.cjs.js
 const rewiremock = require('rewiremock/node'); 
-// nothng more than `plugins.node`, but it might change how filename resolution works
+// nothing more than `plugins.node`, but it might change how filename resolution works
 /// settings
 rewiremock.overrideEntryPoint(module); // this is important
 module.exports = rewiremock;
@@ -46,7 +46,7 @@ rewiremock.overrideEntryPoint(module); // this is important
 export { rewiremock }
 ```
 You will also need to add [a few plugins](https://github.com/theKashey/rewiremock#to-run-inside-webpack-enviroment) to your webpack test configuration (no need to keep them all in production).
-> If you import `rewiremock` directly from your tests, you dont need `overrideEntryPoint`
+> If you import `rewiremock` directly from your tests, you don't need `overrideEntryPoint`
 
 ## 3. Use
 There are 3 ways to mock, all with pros and cons.
@@ -67,7 +67,7 @@ import rewiremock, { addPlugin, plugins } from 'rewiremock';
 addPlugin(plugins.relative);
 ```
 ### mockery - like
-Most powerfull one
+Most powerful one
 ```js
  rewiremock('dependency').with(stub);
  rewiremock(() => require('dependency')).with(stub);
@@ -487,7 +487,7 @@ First - define your mocks. You can do it in any place, this is just a setup.
  import rewiremock from 'rewiremock';
  ...
  
- // totaly mock `fs` with your stub 
+ // totally mock `fs` with your stub 
  rewiremock('fs')
     .with({
         readFile: yourFunction
@@ -534,7 +534,7 @@ First - define your mocks. You can do it in any place, this is just a setup.
   beforeEach( () => rewiremock.enable() );
   //...
   // here you will get some advantage in type casting and autocompleting.
-  // it will actually works...
+  // it will actually work...
   const someModule = require('someModule'); 
   //...
   afterEach( () => rewiremock.disable() );
@@ -551,7 +551,7 @@ First - define your mocks. You can do it in any place, this is just a setup.
   
 # inScope
  Sometimes you will have independent tests in a single file, and you might need separate mocks for each one.
- `inScope` execute callback inside a sandbox, and all mocks or plugins or anything else you have added will not leaks away.
+ `inScope` executes a callback inside a sandbox, and all mocks or plugins or anything else you have added will not leak away.
  ```javascript
   rewiremock.inScope( () => {
     rewiremock('something').with(something);
